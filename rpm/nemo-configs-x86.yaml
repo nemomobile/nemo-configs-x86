@@ -1,0 +1,40 @@
+Name: nemo-configs-x86
+Summary: Some configs for x86-generic adaptation in Nemo Mobile
+Description: |
+  %{summary}.
+Version: 0.1
+Release: 1
+Group: Configs
+License: GPLv2
+Sources:
+    - "%{name}-%{version}.tar.bz2"
+Configure: none
+Builder: none
+NoFiles: True
+BuildArch: noarch
+
+SubPackages:
+   - Name: vm
+     Group: Configs
+     Summary: Configs for x86 vm adaptation
+     Description: |
+      %{summary}.
+     Obsoletes:
+      - nemo-mobile-configs-x86-vm <= 2
+     Provides:
+      - nemo-mobile-configs-x86-vm > 2
+     Files:
+      - "%{_sharedstatedir}/environment/nemo/61-x86-vm.conf"
+
+   - Name: generic
+     Group: Configs
+     Summary: Configs for generic x86 adaptation
+     Description: |
+      %{summary}.
+     Obsoletes:
+      - nemo-mobile-configs-x86-generic <= 2
+     Provides:
+      - nemo-mobile-configs-x86-generic > 2
+     Files:
+      - "%{_sharedstatedir}/environment/nemo/61-x86-generic.conf"
+
