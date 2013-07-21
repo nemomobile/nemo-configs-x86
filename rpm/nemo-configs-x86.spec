@@ -79,6 +79,7 @@ rm -rf %{buildroot}
 %files vm
 %defattr(-,root,root,-)
 %{_sharedstatedir}/environment/nemo/61-x86-vm.conf
+%{_sharedstatedir}/environment/compositor/61-x86-vm-ui.conf
 # >> files vm
 # << files vm
 

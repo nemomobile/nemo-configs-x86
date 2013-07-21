@@ -27,6 +27,7 @@ SubPackages:
       - nemo-mobile-configs-x86-vm > 2
      Files:
       - "%{_sharedstatedir}/environment/nemo/61-x86-vm.conf"
+      - "%{_sharedstatedir}/environment/compositor/61-x86-vm-ui.conf"
 
    - Name: generic
      Group: Configs
