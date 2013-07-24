@@ -13,6 +13,8 @@ Builder: none
 NoFiles: True
 BuildArch: noarch
 
+URL: https://github.com/nemomobile/nemo-configs-x86
+
 SubPackages:
    - Name: vm
      Group: Configs
@@ -38,3 +40,13 @@ SubPackages:
      Files:
       - "%{_sharedstatedir}/environment/nemo/61-x86-generic.conf"
 
+   - Name: prjconf
+     Group: Configs
+     Summary: Project configs for obs projects
+     Description: |
+       %{summary}.
+     AutoDepend: false
+     Provides:
+      - project-config
+     Files:
+      - "%{_datadir}/prjconf/x86-prjconf.xml"

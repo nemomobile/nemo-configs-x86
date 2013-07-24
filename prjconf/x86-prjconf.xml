@@ -1,0 +1,7 @@
+Prefer: mesa-x86-generic-libGLESv2
+Prefer: mesa-x86-generic-libGLESv2-devel
+Prefer: mesa-x86-generic-libEGL
+Prefer: mesa-x86-generic-libEGL-devel
+Prefer: mesa-x86-generic-libGL-devel
+Prefer: mesa-x86-generic-dri-drivers-devel
+

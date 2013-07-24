@@ -14,6 +14,7 @@ Release:    1
 Group:      Configs
 License:    GPLv2
 BuildArch:  noarch
+URL:        https://github.com/nemomobile/nemo-configs-x86
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  nemo-configs-x86.yaml
 
@@ -38,6 +39,15 @@ Provides:   nemo-mobile-configs-x86-generic > 2
 Obsoletes:  nemo-mobile-configs-x86-generic <= 2
 
 %description generic
+%{summary}.
+
+
+%package prjconf
+Summary:    Project configs for obs projects
+Group:      Configs
+Provides:   project-config
+
+%description prjconf
 %{summary}.
 
 
@@ -77,3 +87,9 @@ rm -rf %{buildroot}
 %{_sharedstatedir}/environment/nemo/61-x86-generic.conf
 # >> files generic
 # << files generic
+
+%files prjconf
+%defattr(-,root,root,-)
+%{_datadir}/prjconf/x86-prjconf.xml
+# >> files prjconf
+# << files prjconf
