@@ -51,6 +51,7 @@ SubPackages:
       %{summary}.
      Requires:
       - nemo-configs-x86-vm-common
+      - qt5-plugin-generic-vboxtouch
      Conflicts:
       - nemo-configs-x86-vm-xorg
      Files:

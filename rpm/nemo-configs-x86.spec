@@ -48,6 +48,7 @@ Obsoletes:  nemo-mobile-configs-x86-vm <= 2
 Summary:    Wayland Configs for x86 vm adaptation
 Group:      Configs
 Requires:   nemo-configs-x86-vm-common
+Requires:   qt5-plugin-generic-vboxtouch
 Conflicts:  nemo-configs-x86-vm-xorg
 
 %description vm-wayland
