@@ -16,17 +16,46 @@ BuildArch: noarch
 URL: https://github.com/nemomobile/nemo-configs-x86
 
 SubPackages:
-   - Name: vm
+   - Name: vm-common
      Group: Configs
-     Summary: Configs for x86 vm adaptation
+     Summary: Common files shared by both Xorg and Wayland for x86 vm adaptation
      Description: |
       %{summary}.
-     Obsoletes:
-      - nemo-mobile-configs-x86-vm <= 2
-     Provides:
-      - nemo-mobile-configs-x86-vm > 2
      Files:
       - "%{_sharedstatedir}/environment/nemo/61-x86-vm.conf"
+
+   - Name: vm-xorg
+     Group: Configs
+     Summary: Xorg Configs for x86 vm adaptation
+     Description: |
+      %{summary}.
+     Requires:   
+      - nemo-configs-x86-vm-common
+     Provides:
+      # make images using old packages names (i.e. x11 images) upgrade to -xorg package
+      - nemo-configs-x86-vm > 0.2.1
+      - nemo-mobile-configs-x86-vm > 2
+     Obsoletes: 
+      - nemo-configs-x86-vm <= 0.2.1
+      - nemo-mobile-configs-x86-vm <= 2
+     Conflicts:
+      - nemo-configs-x86-vm-wayland
+     Files:
+      # Currently empty package, it's more consistent to have -xorg package as well, even if currently empty
+      - ""
+
+   - Name: vm-wayland
+     Group: Configs
+     Summary: Wayland Configs for x86 vm adaptation
+     Description: |
+      %{summary}.
+     Requires:
+      - nemo-configs-x86-vm-common
+      - qt5-plugin-generic-vboxtouch
+     Conflicts:
+      - nemo-configs-x86-vm-xorg
+     Files:
+      - "%{_sharedstatedir}/environment/compositor/61-x86-vm-ui.conf"
 
    - Name: generic
      Group: Configs

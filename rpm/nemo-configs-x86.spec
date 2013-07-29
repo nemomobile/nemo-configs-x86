@@ -22,13 +22,36 @@ Source100:  nemo-configs-x86.yaml
 %{summary}.
 
 
-%package vm
-Summary:    Configs for x86 vm adaptation
+%package vm-common
+Summary:    Common files shared by both Xorg and Wayland for x86 vm adaptation
 Group:      Configs
+
+%description vm-common
+%{summary}.
+
+
+%package vm-xorg
+Summary:    Xorg Configs for x86 vm adaptation
+Group:      Configs
+Requires:   nemo-configs-x86-vm-common
+Provides:   nemo-configs-x86-vm > 0.2.1
 Provides:   nemo-mobile-configs-x86-vm > 2
+Conflicts:  nemo-configs-x86-vm-wayland
+Obsoletes:  nemo-configs-x86-vm <= 0.2.1
 Obsoletes:  nemo-mobile-configs-x86-vm <= 2
 
-%description vm
+%description vm-xorg
+%{summary}.
+
+
+%package vm-wayland
+Summary:    Wayland Configs for x86 vm adaptation
+Group:      Configs
+Requires:   nemo-configs-x86-vm-common
+Requires:   qt5-plugin-generic-vboxtouch
+Conflicts:  nemo-configs-x86-vm-xorg
+
+%description vm-wayland
 %{summary}.
 
 
@@ -76,11 +99,22 @@ rm -rf %{buildroot}
 # << install post
 
 
-%files vm
+%files vm-common
 %defattr(-,root,root,-)
 %{_sharedstatedir}/environment/nemo/61-x86-vm.conf
-# >> files vm
-# << files vm
+# >> files vm-common
+# << files vm-common
+
+%files vm-xorg
+%defattr(-,root,root,-)
+# >> files vm-xorg
+# << files vm-xorg
+
+%files vm-wayland
+%defattr(-,root,root,-)
+%{_sharedstatedir}/environment/compositor/61-x86-vm-ui.conf
+# >> files vm-wayland
+# << files vm-wayland
 
 %files generic
 %defattr(-,root,root,-)
