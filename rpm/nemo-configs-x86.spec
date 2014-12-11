@@ -102,6 +102,7 @@ rm -rf %{buildroot}
 %files vm-common
 %defattr(-,root,root,-)
 %{_sharedstatedir}/environment/nemo/61-x86-vm.conf
+%{_sysconfdir}/mce/70-emul-mce.conf
 # >> files vm-common
 # << files vm-common
 
